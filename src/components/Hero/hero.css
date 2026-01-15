@@ -1,0 +1,26 @@
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--white);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.primary-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--white);
+  color: var(--primary-color);
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
