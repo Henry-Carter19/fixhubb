@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
+import emailjs from '@emailjs/browser';
+
 
 const contactInfo = [
   {
@@ -124,46 +126,54 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    setIsSubmitting(true);
+  if (!validateForm()) {
+    return;
+  }
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Here you would typically send data to your backend
-      console.log('Form submitted:', formData);
-      
-      toast({
-        title: 'Request Submitted Successfully!',
-        description: "Our team will contact you within 30 minutes.",
-      });
-      
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        message: '',
-      });
-      
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast({
-        title: 'Submission Failed',
-        description: "Please try again or call us directly.",
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    toast({
+      title: 'Request Submitted Successfully!',
+      description: 'Our team will contact you within 30 minutes.',
+    });
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      message: '',
+    });
+
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+
+    toast({
+      title: 'Submission Failed',
+      description: 'Please try again or contact us directly.',
+      variant: 'destructive',
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <section id="contact" className="section-padding">
