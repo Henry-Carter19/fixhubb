@@ -47,7 +47,7 @@ const Header = () => {
             className="flex items-center gap-2 text-primary font-display font-bold text-lg sm:text-xl"
           >
             <Droplets className="w-6 h-6 sm:w-7 sm:h-7" />
-            <span>AquaClean</span>
+            <span>Fixhubb</span>
           </button>
 
           {/* Desktop Navigation */}

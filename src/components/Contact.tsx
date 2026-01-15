@@ -4,51 +4,165 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { Label } from '@/components/ui/label';
 
 const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    value: '+1 234 567 890',
-    link: 'tel:+1234567890',
+    value: '+91 98765 43210',
+    link: 'tel:+919876543210',
   },
   {
     icon: Mail,
     title: 'Email',
-    value: 'info@aquaclean.com',
-    link: 'mailto:info@aquaclean.com',
+    value: 'contact@watertankcleaning.com',
+    link: 'mailto:contact@watertankcleaning.com',
   },
   {
     icon: MapPin,
     title: 'Address',
-    value: '123 Water Street, Clean City',
+    value: '123 Water Tank Street, Mumbai 400001',
     link: '#',
   },
 ];
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+}
+
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
+    address: '',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    // Phone validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else {
+      const cleanedPhone = formData.phone.replace(/\D/g, '');
+      if (!validatePhone(cleanedPhone)) {
+        newErrors.phone = 'Please enter a valid 10-digit mobile number';
+      } else {
+        // Update form data with cleaned phone number
+        setFormData(prev => ({ ...prev, phone: cleanedPhone }));
+      }
+    }
+
+    // Email validation (only if provided)
+    if (formData.email.trim() && !validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Address validation
+    if (!formData.address.trim()) {
+      newErrors.address = 'Address is required';
+    } else if (formData.address.trim().length < 10) {
+      newErrors.address = 'Please provide a complete address';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+    
+    // Clean phone input - allow only numbers
+    if (name === 'phone') {
+      const cleanedValue = value.replace(/\D/g, '');
+      setFormData(prev => ({ ...prev, [name]: cleanedValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined
+      }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Here you would typically send data to your backend
+      console.log('Form submitted:', formData);
+      
+      toast({
+        title: 'Request Submitted Successfully!',
+        description: "Our team will contact you within 30 minutes.",
+      });
+      
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        message: '',
+      });
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast({
+        title: 'Submission Failed',
+        description: "Please try again or call us directly.",
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -86,6 +200,27 @@ const Contact = () => {
                 </a>
               ))}
             </div>
+
+            {/* Additional Info */}
+            <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/10">
+              <h4 className="text-sm font-semibold text-foreground mb-2">
+                Why Choose Us?
+              </h4>
+              <ul className="text-xs text-muted-foreground space-y-1">
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                  <span>Same day service available</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                  <span>Certified professionals</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                  <span>100% satisfaction guarantee</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Contact Form */}
@@ -95,53 +230,127 @@ const Contact = () => {
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
-                <div>
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm">
+                    Full Name *
+                  </Label>
                   <Input
+                    id="name"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder="Enter your full name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     className="h-10 text-sm"
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                   />
+                  {errors.name && (
+                    <p id="name-error" className="text-xs text-red-500">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
-                <div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-sm">
+                    Mobile Number *
+                  </Label>
                   <Input
-                    name="email"
-                    type="email"
-                    placeholder="Email Address"
-                    value={formData.email}
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Enter your 10-digit number"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     className="h-10 text-sm"
+                    maxLength={10}
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? "phone-error" : undefined}
                   />
+                  {errors.phone && (
+                    <p id="phone-error" className="text-xs text-red-500">
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
               </div>
-              <div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-sm">
+                  Email Address *
+                </Label>
                 <Input
-                  name="phone"
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={formData.phone}
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Enter your email"
+                  value={formData.email}
                   onChange={handleChange}
                   className="h-10 text-sm"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
+                {errors.email && (
+                  <p id="email-error" className="text-xs text-red-500">
+                    {errors.email}
+                  </p>
+                )}
               </div>
-              <div>
+
+              <div className="space-y-2">
+                <Label htmlFor="address" className="text-sm">
+                  Complete Address *
+                </Label>
                 <Textarea
-                  name="message"
-                  placeholder="How can we help you?"
-                  value={formData.message}
+                  id="address"
+                  name="address"
+                  placeholder="Enter your complete address with landmark"
+                  value={formData.address}
                   onChange={handleChange}
                   required
-                  className="min-h-[100px] text-sm resize-none"
+                  className="min-h-[80px] text-sm resize-none"
+                  aria-invalid={!!errors.address}
+                  aria-describedby={errors.address ? "address-error" : undefined}
                 />
+                {errors.address && (
+                  <p id="address-error" className="text-xs text-red-500">
+                    {errors.address}
+                  </p>
+                )}
               </div>
-              <Button type="submit" className="w-full btn-primary group">
-                Send Message
-                <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+
+              <div className="text-xs text-muted-foreground">
+                <p>* Required fields</p>
+                <p className="mt-1">We guarantee a response within 30 minutes during business hours</p>
+              </div>
+
+              <Button 
+                type="submit" 
+                className="w-full btn-primary group"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    Submit Request
+                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </Button>
             </form>
+
+            {/* Privacy Notice */}
+            <div className="mt-6 p-3 bg-muted/30 rounded-lg">
+              <p className="text-xs text-muted-foreground text-center">
+                By submitting this form, you agree to our privacy policy. We never share your information with third parties.
+              </p>
+            </div>
           </div>
         </div>
       </div>

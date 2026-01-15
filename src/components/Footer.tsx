@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <Droplets className="w-6 h-6 text-primary" />
-              <span className="font-display font-bold text-lg">AquaClean</span>
+              <span className="font-display font-bold text-lg">Fixhubb</span>
             </div>
             <p className="text-xs sm:text-sm text-background/70 mb-4 max-w-xs">
               Professional water tank cleaning services ensuring clean and safe water for your family.
@@ -94,7 +94,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-sm mb-3">Contact</h4>
             <div className="space-y-2 text-xs sm:text-sm text-background/70">
               <p>+1 234 567 890</p>
-              <p>info@aquaclean.com</p>
+              <p>info@fixhubb.in</p>
               <p>123 Water Street<br />Clean City, CC 12345</p>
             </div>
           </div>
@@ -102,7 +102,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-background/10 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-background/60">
-          <p>&copy; {currentYear} AquaClean. All rights reserved.</p>
+          <p>&copy; {currentYear} Fixhubb All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

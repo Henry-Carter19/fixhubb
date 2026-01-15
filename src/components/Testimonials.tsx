@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: 'Michael Chen',
     role: 'Property Manager',
-    content: 'I manage multiple properties and AquaClean handles all our tanks. Reliable and always on time.',
+    content: 'I manage multiple properties and Fixhubb handles all our tanks. Reliable and always on time.',
     rating: 5,
   },
   {
