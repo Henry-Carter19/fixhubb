@@ -4,41 +4,42 @@ import { Card, CardContent } from '@/components/ui/card';
 const services = [
   {
     icon: Droplets,
-    title: 'Tank Cleaning',
-    description: 'Complete cleaning and sanitization of your water tank using advanced techniques.',
+    title: 'Water Tank Cleaning',
+    description: 'Professional cleaning of overhead and plastic water tanks in Nagpur to remove dirt, algae, and impurities.',
     color: 'bg-blue-500/10 text-blue-600',
   },
   {
     icon: Bug,
-    title: 'Anti-Bacterial Treatment',
-    description: 'Eliminate harmful bacteria and microorganisms for safe drinking water.',
+    title: 'Anti-Bacterial Disinfection',
+    description: 'Safe disinfection process to reduce bacteria and improve overall water hygiene.',
     color: 'bg-green-500/10 text-green-600',
   },
   {
     icon: Trash2,
-    title: 'Sludge Removal',
-    description: 'Remove sediments and deposits that accumulate at the bottom of tanks.',
+    title: 'Sludge & Sediment Removal',
+    description: 'Removal of settled sludge, mud, and deposits from the bottom of water tanks.',
     color: 'bg-orange-500/10 text-orange-600',
   },
   {
     icon: ShieldCheck,
-    title: 'UV Treatment',
-    description: 'Advanced UV sterilization to ensure 99.9% germ-free water.',
+    title: 'Safe Hygiene Treatment',
+    description: 'Hygienic treatment using potable-water-safe methods to improve water safety.',
     color: 'bg-purple-500/10 text-purple-600',
   },
   {
     icon: Sparkles,
-    title: 'Deep Cleaning',
-    description: 'Thorough scrubbing and high-pressure cleaning of tank walls and surfaces.',
+    title: 'Deep Tank Cleaning',
+    description: 'High-pressure washing and manual scrubbing of tank walls for thorough internal cleaning.',
     color: 'bg-cyan-500/10 text-cyan-600',
   },
   {
     icon: Wrench,
-    title: 'Maintenance',
-    description: 'Regular maintenance services to keep your tank in optimal condition.',
+    title: 'Basic Tank Maintenance',
+    description: 'Preventive maintenance to help keep your water tank clean between scheduled cleanings.',
     color: 'bg-rose-500/10 text-rose-600',
   },
 ];
+
 
 const Services = () => {
   return (
@@ -47,14 +48,14 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-3">
-            Our Services
+            Water Tank Cleaning Services
           </span>
           <h2 className="section-title">
-            Comprehensive Tank Cleaning Solutions
+            Professional Water Tank Cleaning Services in Nagpur
           </h2>
           <p className="section-subtitle">
-            Professional services tailored to ensure your water tank remains clean, 
-            safe, and efficient year-round.
+            Reliable water tank cleaning services in Nagpur focused on hygiene, safety,
+            and clean water for homes and residential buildings.
           </p>
         </div>
 

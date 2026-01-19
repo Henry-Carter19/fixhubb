@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  ${
+      className={`fixed header top-0 left-0 right-0 z-50 transition-all duration-300  ${
         isScrolled 
         ? 'bg-card/95 backdrop-blur-md shadow-soft' 
           : 'bg-transparent'
@@ -46,9 +46,15 @@ const Header = () => {
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-2 text-primary font-display font-bold text-lg sm:text-xl"
           >
+            <img src="/logo.png" className="header-logo"/>
+          </button>
+          {/* <button 
+            onClick={() => scrollToSection('hero')}
+            className="flex items-center gap-2 text-primary font-display font-bold text-lg sm:text-xl"
+          >
             <Droplets className="w-6 h-6 sm:w-7 sm:h-7" />
             <span>Fixhubb</span>
-          </button>
+          </button> */}
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-6">

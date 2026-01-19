@@ -4,28 +4,29 @@ const steps = [
   {
     icon: Phone,
     step: '01',
-    title: 'Book Online',
-    description: 'Schedule your service through our easy booking system or give us a call.',
+    title: 'Book Service',
+    description: 'Contact us by phone or WhatsApp to schedule your water tank cleaning.',
   },
   {
     icon: ClipboardCheck,
     step: '02',
-    title: 'Inspection',
-    description: 'Our team inspects your tank and provides a detailed assessment.',
+    title: 'Tank Check',
+    description: 'We check the tank condition and prepare it for the cleaning process.',
   },
   {
     icon: Sparkles,
     step: '03',
-    title: 'Deep Clean',
-    description: 'Professional cleaning using eco-friendly solutions and modern equipment.',
+    title: 'Tank Cleaning',
+    description: 'High-pressure cleaning, scrubbing, and safe disinfection of the tank.',
   },
   {
     icon: CheckCircle,
     step: '04',
-    title: 'Quality Check',
-    description: 'Final inspection and water quality testing to ensure purity.',
+    title: 'Final Rinse',
+    description: 'Thorough final rinse and visual check before refilling the tank.',
   },
 ];
+
 
 const Process = () => {
   return (
@@ -34,13 +35,13 @@ const Process = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block px-3 py-1 text-xs font-medium bg-primary-foreground/20 text-primary-foreground rounded-full mb-3">
-            Our Process
+            Our Cleaning Process
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-3">
-            How It Works
+            Our Water Tank Cleaning Process
           </h2>
           <p className="text-sm sm:text-base text-primary-foreground/80 max-w-2xl mx-auto">
-            Simple and hassle-free process to get your water tank professionally cleaned.
+            A simple and reliable process for professional water tank cleaning in Nagpur.
           </p>
         </div>
 

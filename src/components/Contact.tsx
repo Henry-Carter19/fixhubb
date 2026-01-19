@@ -12,22 +12,23 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    value: '+91 98765 43210',
-    link: 'tel:+919876543210',
+    value: 'Call us for booking',
+    link: 'tel:+918381001406',
   },
   {
     icon: Mail,
     title: 'Email',
-    value: 'contact@watertankcleaning.com',
-    link: 'mailto:contact@watertankcleaning.com',
+    value: 'shinex2developer@gmail.com',
+    link: 'mailto:shinex2developer@gmail.com',
   },
   {
     icon: MapPin,
-    title: 'Address',
-    value: '123 Water Tank Street, Mumbai 400001',
+    title: 'Service Area',
+    value: 'Nagpur, Maharashtra',
     link: '#',
   },
 ];
+
 
 interface FormData {
   name: string;
@@ -188,8 +189,8 @@ const handleSubmit = async (e: React.FormEvent) => {
               Get Your Free Quote Today
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-6">
-              Ready to experience clean, safe water? Reach out to us for a free 
-              consultation and quote. We're here to help!
+              Looking for reliable water tank cleaning in Nagpur? Contact Fixhubb to
+              get a free quote and schedule your tank cleaning at a convenient time.
             </p>
 
             {/* Contact Cards */}

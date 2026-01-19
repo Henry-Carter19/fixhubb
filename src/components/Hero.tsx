@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Clock, Award } from 'lucide-react';
+import { ArrowRight,Shield, Zap, Wrench, IndianRupee  } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -10,10 +10,11 @@ const Hero = () => {
   };
 
   const features = [
-    { icon: Shield, text: 'Certified Experts' },
-    { icon: Clock, text: '24/7 Service' },
-    { icon: Award, text: '10+ Years Experience' },
-  ];
+  { icon: Shield, text: 'Safe & Hygienic Cleaning' },
+  { icon: Zap, text: 'Quick & Reliable Service' },
+  { icon: Wrench, text: 'Professional Equipment' },
+  { icon: IndianRupee, text: 'Affordable & Transparent Pricing' },
+];
 
   return (
     <section 
@@ -32,17 +33,17 @@ const Hero = () => {
           {/* Content */}
           <div className="text-center lg:text-left animate-fade-up">
             <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-4">
-              Professional Tank Cleaning Services
+             Professional Water Tank Cleaning in Nagpur
             </span>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-foreground leading-tight mb-4">
-              Crystal Clear Water,{' '}
-              <span className="text-primary">Healthy Life</span>
+              Crystal Clear Water for a <span className="text-primary">Healthy Life</span>
             </h1>
             
             <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-6">
-              Expert water tank cleaning services to ensure your family gets the purest, 
-              safest water. Trusted by 10,000+ households.
+              Professional water tank cleaning services in Nagpur designed to keep your
+              home’s water clean, safe, and hygienic. We follow a proper cleaning and
+              disinfection process using safe equipment and methods.
             </p>
 
             {/* CTA Buttons */}
@@ -91,8 +92,8 @@ const Hero = () => {
                       <path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8zm0 18c-3.35 0-6-2.57-6-6.2 0-2.34 1.95-5.44 6-9.14 4.05 3.7 6 6.79 6 9.14 0 3.63-2.65 6.2-6 6.2z"/>
                     </svg>
                   </div>
-                  <h3 className="text-lg font-display font-bold mb-2">Pure Water Guaranteed</h3>
-                  <p className="text-sm opacity-90">100% satisfaction or your money back</p>
+                  <h3 className="text-lg font-display font-bold mb-2">Clean & Safe Water</h3>
+                  <p className="text-sm opacity-90">Hygienic water tank cleaning using safe methods</p>
                 </div>
               </div>
             </div>

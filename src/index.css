@@ -198,3 +198,21 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
 }
+
+
+/* Header Logo Image */
+.header .container-section .header-logo {
+  width: 125px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Slightly larger on bigger screens */
+@media (max-width: 640px) {
+  .header .container-section .header-logo {
+    width: 90px;
+    height: 50px;
+  }
+}

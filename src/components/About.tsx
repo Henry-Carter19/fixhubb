@@ -1,19 +1,22 @@
 import { CheckCircle2, Users, Award, ThumbsUp } from 'lucide-react';
 
 const stats = [
-  { icon: Users, value: '10,000+', label: 'Happy Customers' },
-  { icon: Award, value: '15+', label: 'Years Experience' },
-  { icon: ThumbsUp, value: '99%', label: 'Satisfaction Rate' },
+  { icon: Users, value: '100+', label: 'Tanks Cleaned' },
+  { icon: Award, value: '4-Step', label: 'Cleaning Process' },
+  { icon: ThumbsUp, value: '30 Min', label: 'Cleaning Duration' },
 ];
 
+
 const features = [
-  'Certified and trained professionals',
-  'Eco-friendly cleaning solutions',
-  'Same-day service available',
-  'Affordable pricing plans',
-  'Insurance covered services',
-  'Post-cleaning quality check',
+  'Safe and hygienic tank cleaning',
+  'Potable-water-safe disinfectants',
+  'Transparent and affordable pricing',
+  'Professional cleaning equipment',
+  'Detailed cleaning and rinsing',
+  'Clean and safe water for homes',
 ];
+
+
 
 const About = () => {
   return (
@@ -45,16 +48,16 @@ const About = () => {
           {/* Content */}
           <div className="order-1 lg:order-2">
             <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-3">
-              About Us
+              About Fixhubb
             </span>
             <h2 className="section-title text-left mb-4">
-              Your Trusted Partner for Clean Water
+              Reliable Water Tank Cleaning Service in Nagpur
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-6">
-              With over 15 years of experience, we've established ourselves as the 
-              leading water tank cleaning service. Our commitment to quality and 
-              customer satisfaction has made us the preferred choice for thousands 
-              of households.
+              Fixhubb is a Nagpur-based water tank cleaning service focused on providing
+              clean, safe, and hygienic water for residential homes. We follow a
+              systematic cleaning and disinfection process using professional equipment
+              and safe methods to improve overall water quality.
             </p>
 
             {/* Features list */}

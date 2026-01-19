@@ -17,12 +17,13 @@ const Footer = () => {
     { label: 'Contact', id: 'contact' },
   ];
 
-  const services = [
-    'Tank Cleaning',
-    'Anti-Bacterial Treatment',
-    'Sludge Removal',
-    'UV Treatment',
-  ];
+ const services = [
+  'Water Tank Cleaning',
+  'Anti-Bacterial Disinfection',
+  'Sludge & Sediment Removal',
+  'Deep Tank Cleaning',
+];
+
 
   const socialLinks = [
     { icon: Facebook, href: '#' },
@@ -42,7 +43,7 @@ const Footer = () => {
               <span className="font-display font-bold text-lg">Fixhubb</span>
             </div>
             <p className="text-xs sm:text-sm text-background/70 mb-4 max-w-xs">
-              Professional water tank cleaning services ensuring clean and safe water for your family.
+             Professional water tank cleaning services in Nagpur focused on clean, safe, and hygienic water for homes.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
@@ -93,9 +94,9 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-sm mb-3">Contact</h4>
             <div className="space-y-2 text-xs sm:text-sm text-background/70">
-              <p>+1 234 567 890</p>
-              <p>info@fixhubb.in</p>
-              <p>123 Water Street<br />Clean City, CC 12345</p>
+              <p>+91 83810 01406</p>
+              <p>shinex2developer@gmail.com</p>
+              <p>Nagpur, Maharashtra</p>
             </div>
           </div>
         </div>
@@ -105,7 +106,7 @@ const Footer = () => {
           <p>&copy; {currentYear} Fixhubb All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-primary transition-colors">Terms of Conditions</a>
           </div>
         </div>
       </div>

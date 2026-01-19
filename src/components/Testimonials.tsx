@@ -3,24 +3,25 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'Homeowner',
-    content: 'Excellent service! The team was professional and thorough. My water quality has improved significantly.',
+    name: 'Local Homeowner',
+    role: 'Residential Customer, Nagpur',
+    content: 'The service was neat and professional. The tank was cleaned properly and the process was explained clearly.',
     rating: 5,
   },
   {
-    name: 'Michael Chen',
-    role: 'Property Manager',
-    content: 'I manage multiple properties and Fixhubb handles all our tanks. Reliable and always on time.',
+    name: 'Apartment Resident',
+    role: 'Home User',
+    content: 'Good experience overall. The team arrived on time and completed the cleaning as discussed.',
     rating: 5,
   },
   {
-    name: 'Priya Sharma',
-    role: 'Homeowner',
-    content: 'Very impressed with their attention to detail. They explained everything clearly and did a great job.',
+    name: 'Family Customer',
+    role: 'Household User',
+    content: 'Satisfied with the cleaning work. The tank looked clean and there was no strong chemical smell.',
     rating: 5,
   },
 ];
+
 
 const Testimonials = () => {
   return (
@@ -29,13 +30,13 @@ const Testimonials = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-3">
-            Testimonials
+            Customer Feedback
           </span>
           <h2 className="section-title">
-            What Our Customers Say
+            What Customers Say About Fixhubb
           </h2>
           <p className="section-subtitle">
-            Don't just take our word for it – hear from our satisfied customers.
+            Feedback from customers who have used our water tank cleaning service in Nagpur.
           </p>
         </div>
 
