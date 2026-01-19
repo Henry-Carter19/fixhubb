@@ -68,7 +68,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-3">
             <a href="tel:+1234567890" className="flex items-center gap-1.5 text-sm font-medium text-primary">
               <Phone className="w-4 h-4" />
-              <span>+1 234 567 890</span>
+              <span>8381 00 1406</span>
             </a>
             <Button 
               onClick={() => scrollToSection('contact')}
