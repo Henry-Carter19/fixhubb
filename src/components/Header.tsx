@@ -33,9 +33,9 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  ${
         isScrolled 
-          ? 'bg-card/95 backdrop-blur-md shadow-soft' 
+        ? 'bg-card/95 backdrop-blur-md shadow-soft' 
           : 'bg-transparent'
       }`}
     >
@@ -92,7 +92,7 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-card/98 backdrop-blur-md border-t border-border shadow-lg animate-fade-in">
-            <ul className="flex flex-col py-4">
+            <ul className="flex flex-col py-4 backdrop-blur-md bg-white">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <button
